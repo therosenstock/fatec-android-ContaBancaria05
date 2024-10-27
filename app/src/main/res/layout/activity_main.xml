@@ -6,151 +6,130 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <RadioGroup
-        android:id="@+id/radioGroup"
-        android:layout_width="350dp"
-        android:layout_height="60dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.025">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
 
-        <RadioButton
-            android:id="@+id/radioPoupanca"
-            android:layout_width="175dp"
-            android:layout_height="wrap_content"
-            android:text="Poupança" />
-
-        <RadioButton
-            android:id="@+id/radioEspecial"
+        <RadioGroup
+            android:id="@+id/radioGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Especial" />
-    </RadioGroup>
+            android:orientation="horizontal">
 
-    <EditText
-        android:id="@+id/editCliente"
-        android:layout_width="350dp"
-        android:layout_height="60dp"
-        android:hint="Nome do Cliente"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.508"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.137" />
+            <RadioButton
+                android:id="@+id/radioPoupanca"
+                android:layout_width="175dp"
+                android:layout_height="wrap_content"
+                android:text="Poupança" />
 
-    <EditText
-        android:id="@+id/editNumConta"
-        android:layout_width="350dp"
-        android:layout_height="60dp"
-        android:hint="Número da Conta"
-        android:inputType="number"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.508"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.238" />
+            <RadioButton
+                android:id="@+id/radioEspecial"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Especial" />
+        </RadioGroup>
 
-    <EditText
-        android:id="@+id/editValor"
-        android:layout_width="350dp"
-        android:layout_height="60dp"
-        android:hint="Valor"
-        android:inputType="numberDecimal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.508"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.339" />
+        <EditText
+            android:id="@+id/editCliente"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:hint="Nome do Cliente" />
 
-    <EditText
-        android:id="@+id/editLimite"
-        android:layout_width="350dp"
-        android:layout_height="60dp"
-        android:hint="Limite da conta"
-        android:inputType="numberDecimal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.438"
-        android:visibility="gone"/>
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="16dp" />
 
-    <EditText
-        android:id="@+id/editDiaRendimento"
-        android:layout_width="350dp"
-        android:layout_height="60dp"
-        android:hint="Dia de rendimento"
-        android:inputType="numberDecimal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.438" />
+        <EditText
+            android:id="@+id/editNumConta"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:hint="Número da Conta"
+            android:inputType="number" />
 
-    <Button
-        android:id="@+id/btnDepositar"
-        android:layout_width="170dp"
-        android:layout_height="60dp"
-        android:text="Depositar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.904"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.644" />
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="16dp" />
 
-    <Button
-        android:id="@+id/btnCadastrar"
-        android:layout_width="170dp"
-        android:layout_height="60dp"
-        android:text="Cadastrar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.904"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.75" />
+        <EditText
+            android:id="@+id/editValor"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:hint="Valor"
+            android:inputType="numberDecimal" />
 
-    <Button
-        android:id="@+id/btnMostrarDados"
-        android:layout_width="170dp"
-        android:layout_height="60dp"
-        android:text="Mostrar Dados"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.107"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.75" />
+        <EditText
+            android:id="@+id/editLimite"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Limite da conta"
+            android:inputType="numberDecimal"
+            android:visibility="gone" />
 
-    <Button
-        android:id="@+id/btnSacar"
-        android:layout_width="170dp"
-        android:layout_height="60dp"
-        android:text="Sacar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.103"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.644" />
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="16dp" />
 
-    <TextView
-        android:id="@+id/textResultado"
-        android:layout_width="350dp"
-        android:layout_height="133dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="696dp"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <EditText
+            android:id="@+id/editDiaRendimento"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:hint="Dia de rendimento"
+            android:inputType="numberDecimal" />
+
+        <TextView
+            android:id="@+id/textResultado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnDepositar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Depositar" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/btnCadastrar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cadastrar" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnMostrarDados"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mostrar Dados" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/btnSacar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sacar" />
+        </LinearLayout>
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

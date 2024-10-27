@@ -1,9 +1,16 @@
 package com.example.contabancaria.model;
 
 public class ContaBancaria {
+    /*
+     *@author:<Fabiola Rodrigues dos Santos / RA: 1110482313011>
+     */
     protected String cliente;
     protected int numConta;
     protected double saldo;
+
+    public ContaBancaria() {
+
+    }
 
     public String getCliente() {
         return cliente;

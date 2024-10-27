@@ -1,6 +1,9 @@
 package com.example.contabancaria.model;
 
 public class ContaEspecial extends ContaBancaria {
+    /*
+     *@author:<Fabiola Rodrigues dos Santos / RA: 1110482313011>
+     */
     private double limite;
 
     public double getLimite() {
@@ -11,9 +14,8 @@ public class ContaEspecial extends ContaBancaria {
         this.limite = limite;
     }
 
-    public ContaEspecial(String cliente, int numConta, double saldoInicial, double limite) {
-        super(cliente, numConta, saldoInicial);
-        this.limite = limite;
+    public ContaEspecial() {
+        super();
     }
 
     @Override

@@ -19,7 +19,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-
+    /*
+     *@author:<Fabiola Rodrigues dos Santos / RA: 1110482313011>
+     */
     private List<ContaBancaria> contas = new ArrayList<>();;
 
     private EditText editCliente, editNumConta, editValor, editDiaRendimento, editLimite;
@@ -45,6 +47,8 @@ public class MainActivity extends AppCompatActivity {
         radioPoupanca.setChecked(true);
         radioEspecial.setChecked(false);
 
+        textResultado = findViewById(R.id.textResultado);
+
 
         Button btnSacar = findViewById(R.id.btnSacar);
         Button btnDepositar = findViewById(R.id.btnDepositar);
@@ -68,26 +72,41 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void cadastrar() {
+        try {
 
             String nome = String.valueOf(editCliente.getText());
             int numConta = Integer.parseInt(String.valueOf(editNumConta.getText()));
             double valor = Double.parseDouble(String.valueOf(editValor.getText()));
             if (radioEspecial.isChecked()) {
                 double limite = Double.parseDouble(String.valueOf(editLimite.getText()));
-                ContaEspecial e = new ContaEspecial(nome, numConta, valor, limite);
+
+                ContaEspecial e = new ContaEspecial();
+                e.setNumConta(numConta);
+                e.setCliente(nome);
+                e.setSaldo(valor);
+                e.setLimite(limite);
                 contas.add(e);
             } else {
                 int diaRendimento = Integer.parseInt(String.valueOf(editDiaRendimento.getText()));
-                ContaPoupanca p = new ContaPoupanca(nome, numConta, valor, diaRendimento);
+                ContaPoupanca p = new ContaPoupanca();
+                p.setCliente(nome);
+                p.setSaldo(valor);
+                p.setNumConta(numConta);
+                p.setDiaDeRendimento(diaRendimento);
                 contas.add(p);
             }
             Toast.makeText(this, "Conta cadastrada com sucesso!", Toast.LENGTH_SHORT).show();
-        limpar();
+            limpar();
+        } catch(Exception e){
+            Toast.makeText(this, "Ocorreu um erro ao cadastrar!", Toast.LENGTH_SHORT).show();
+
+        }
     }
 
     private ContaBancaria buscarConta(int numeroConta) {
         for (ContaBancaria conta : contas) {
             if (conta.getNumConta() == numeroConta) {
+                System.out.println(conta);
                 return conta;
             }
         }
@@ -135,22 +154,31 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void mostrarDados() {
-        if (conta != null) {
-            textResultado.setText(conta.toString());
-        } else {
-            textResultado.setText("Nenhuma conta registrada.");
+        try {
+            System.out.println(editNumConta.getText().toString());
+            int numeroConta = Integer.parseInt(editNumConta.getText().toString());
+            ContaBancaria conta = buscarConta(numeroConta);
+
+            if (conta != null) {
+                String dadosConta = conta.toString();
+
+                if (conta instanceof ContaPoupanca) {
+                    ContaPoupanca poupanca = (ContaPoupanca) conta;
+                    dadosConta += "\nDia de Rendimento: " + poupanca.getDiaDeRendimento();
+                } else if (conta instanceof ContaEspecial) {
+                    ContaEspecial especial = (ContaEspecial) conta;
+                    dadosConta += "\nLimite: R$ " + especial.getLimite();
+                }
+
+                textResultado.setText(dadosConta.toString());
+                textResultado.setVisibility(View.VISIBLE);
+            } else {
+                Toast.makeText(this, "Conta não encontrada.", Toast.LENGTH_SHORT).show();
+            }
+        } catch (Exception e) {
+            System.out.println(e.toString());
+            Toast.makeText(this, "Erro ao buscar conta.", Toast.LENGTH_SHORT).show();
         }
     }
 
-    public void criarConta(View view) {
-        String cliente = editCliente.getText().toString();
-        int numConta = Integer.parseInt(editNumConta.getText().toString());
-
-        int tipoSelecionado = radioGroup.getCheckedRadioButtonId();
-        if (tipoSelecionado == R.id.radioPoupanca) {
-            conta = new ContaPoupanca(cliente, numConta, 0, 5); // Exemplo de dia de rendimento
-        } else if (tipoSelecionado == R.id.radioEspecial) {
-            conta = new ContaEspecial(cliente, numConta, 0, 1000); // Exemplo de limite
-        }
-    }
 }

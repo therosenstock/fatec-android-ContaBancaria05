@@ -1,6 +1,9 @@
 package com.example.contabancaria.model;
 
 public class ContaPoupanca extends ContaBancaria {
+    /*
+     *@author:<Fabiola Rodrigues dos Santos / RA: 1110482313011>
+     */
     private int diaDeRendimento;
 
     public int getDiaDeRendimento() {
@@ -8,11 +11,6 @@ public class ContaPoupanca extends ContaBancaria {
     }
 
     public void setDiaDeRendimento(int diaDeRendimento) {
-        this.diaDeRendimento = diaDeRendimento;
-    }
-
-    public ContaPoupanca(String cliente, int numConta, double saldoInicial, int diaDeRendimento) {
-        super(cliente, numConta, saldoInicial);
         this.diaDeRendimento = diaDeRendimento;
     }
 
